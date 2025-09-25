@@ -1,0 +1,51 @@
+<dialog class='feature-form-care-moment__dialog' id='careMomentFormDialog'>
+  <div class='feature-form-care-moment__container'>
+    <header class='feature-form-care-moment__header'>
+      <h2 class='feature-form-care-moment__title'>Nieuw Zorgmoment</h2>
+      <button class='feature-form-care-moment__close-button' (click)="closeDialog()" title='Sluiten'>
+        Sluiten
+      </button>
+    </header>
+
+    <form class='feature-form-care-moment__form' [formGroup]="careMomentForm" (ngSubmit)="onSubmit()">
+      <lib-input
+        label="Datum"
+        name="date"
+        type="date"
+        [required]="true"
+        [control]="careMomentForm.controls['date']"
+        [error]="giveFieldError('date')"
+        [showValidation]="this.showValidation"
+      />
+      <lib-input
+        label="Tijd"
+        name="time"
+        type="time"
+        [control]="careMomentForm.controls['time']"
+      />
+      <lib-input
+        label="Zorgtype"
+        name="careType"
+        placeholder="Voer een zorgtype in, bv. 'Verpleegkundige zorg'"
+        type="text"
+        [required]="true"
+        width='wide'
+        [control]="careMomentForm.controls['careType']"
+        [error]="giveFieldError('careType')"
+        [showValidation]="this.showValidation"
+      />
+      <lib-select
+        label="ZorgVerlener"
+        name="carer"
+        [options]="carerOptions"
+        placeholder="Selecteer een zorgverlener"
+        [required]="true"
+        [control]="careMomentForm.controls['carer']"
+        [error]="giveFieldError('carer')"
+        [showValidation]="this.showValidation"
+      />
+
+      <lib-button type='submit'>Zorgmoment Opslaan</lib-button>
+    </form>
+  </div>
+</dialog>

@@ -1,0 +1,28 @@
+
+<div class="select">
+  @if (this.error()) {
+    <div class="input__error">{{ this.error }}</div>
+  }
+  <label class="select__label" [for]="this._elementId">
+    {{ this.label() }}
+    @if (this.required()) {
+      <span class="select__required" aria-hidden="true">*</span>
+      <span class="select__required-text"> (verplicht)</span>
+    }
+  </label>
+  <select
+    class="select__field"
+    [ngClass]="{ 'select__field--validate': this.showValidation() }"
+    [name]="this.name()"
+    [id]="this._elementId"
+    [formControl]="this.control()"
+    [attr.data-test-select]="this.name()"
+  >
+    @if (this.placeholder()) {
+      <option [value]="''" disabled selected>-- {{ this.placeholder() }} --</option>
+    }
+    @for (option of this.options(); track option.value) {
+      <option [value]="option.value">{{ option.label }}</option>
+    }
+  </select>
+</div>

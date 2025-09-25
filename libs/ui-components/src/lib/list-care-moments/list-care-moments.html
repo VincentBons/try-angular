@@ -1,0 +1,61 @@
+@if (this.careMomentsOrdered.length > 0) {
+  <table class='list-care-moments__table'>
+    <thead>
+      <tr class="list-care-moments__tr">
+        <th class="list-care-moments__th" scope="col">
+          Datum afspraak
+          <span class='list-care-moments__sort-buttons'>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'date' && this.orderDirection === 'asc' }" (click)="orderData('date', 'asc')">↑</button>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'date' && this.orderDirection === 'desc' }" (click)="orderData('date', 'desc')">↓</button>
+          </span>
+        </th>
+        <th class="list-care-moments__th" scope="col">Tijd afspraak</th>
+        <th  class="list-care-moments__th" scope="col">
+          Zorgtype
+          <span class='list-care-moments__sort-buttons'>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'careType' && this.orderDirection === 'asc' }" (click)="orderData('careType', 'asc')">↑</button>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'careType' && this.orderDirection === 'desc' }" (click)="orderData('careType', 'desc')">↓</button>
+          </span>
+        </th>
+        <th class="list-care-moments__th" scope="col">
+          Zorgverlener
+          <span class='list-care-moments__sort-buttons'>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'carer' && this.orderDirection === 'asc' }" (click)="orderData('carer', 'asc')">↑</button>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'carer' && this.orderDirection === 'desc' }" (click)="orderData('carer', 'desc')">↓</button>
+          </span>
+        </th>
+        <th class="list-care-moments__th" scope="col">
+          Datum toegevoegd
+          <span class='list-care-moments__sort-buttons'>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'dateAdded' && this.orderDirection === 'asc' }" (click)="orderData('dateAdded', 'asc')">↑</button>
+            <button class='list-care-moments_order-button' [ngClass]="{ 'list-care-moments_order-button--active': this.orderField === 'dateAdded' && this.orderDirection === 'desc' }" (click)="orderData('dateAdded', 'desc')">↓</button>
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (careMoment of this.careMomentsOrdered; track careMoment.id) {
+        <tr class="list-care-moments__tr">
+          <td class="list-care-moments__td">
+            {{ careMoment?.date | date }}
+          </td>
+          <td class="list-care-moments__td">
+            {{ careMoment?.time }}
+          </td>
+          <td class="list-care-moments__td">
+            {{ careMoment?.careType }}
+          </td>
+          <td class="list-care-moments__td">
+            {{ careMoment?.carer }}
+          </td>
+          <td class="list-care-moments__td">
+            {{ careMoment?.dateAdded | date:'medium' }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+@else {
+  <li>Er zijn (nog) geen zorgmomenten.</li>
+}

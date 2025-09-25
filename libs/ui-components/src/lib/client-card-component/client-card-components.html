@@ -1,0 +1,31 @@
+<article class="client-card">
+  <img
+    class="client-card__avatar"
+    src="assets/images/avatar-default.svg"
+    alt="Avatar van {{ client().firstNames }} {{ client().lastName }}"
+  />
+  <div class="client-card__container">
+    <h3
+      class="client-card__name"
+      title="{{ client().firstNames }} {{ client().lastName }}"
+    >
+      {{ client().firstNames }} {{ client().lastName }}
+    </h3>
+    <dl class="client-card__info">
+      <dt class="client-card__info-title">Contactpersoon</dt>
+      <dd class="client-card__info-content" data-test-contact>
+        @if (contact()) {
+          {{ contact()?.firstNames }} {{ contact()?.lastName }}
+        }
+        @else {
+          /
+        }
+      </dd>
+      <dt class="client-card__info-title">Geboortedatum</dt>
+      <dd class="client-card__info-content" data-test-birthdate>
+        {{ client().dateOfBirth | date }}
+      </dd>
+    </dl>
+  </div>
+
+</article>

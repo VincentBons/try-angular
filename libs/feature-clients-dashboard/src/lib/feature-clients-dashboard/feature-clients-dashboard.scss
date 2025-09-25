@@ -1,0 +1,27 @@
+.clients-dashboard {
+  &__client-link {
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+
+  &__client-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: var(--spacing-m);
+    flex-wrap: wrap;
+  }
+
+  &__client-item {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 20rem;
+    border: var(--spacing-xxs) solid var(--color-primary);
+    border-radius: var(--border-radius-l);
+
+    &:hover {
+      background-color: var(--color-hover-bg);
+    }
+  }
+}
+

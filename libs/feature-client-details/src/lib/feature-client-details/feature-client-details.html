@@ -1,0 +1,23 @@
+<a routerLink="/dashboard">← Terug naar cliënten</a>
+
+@if (client) {
+  <lib-page-header
+    [title]="'Details ' + (client.firstNames || '') + ' ' + (client.lastName || '')"
+  />
+
+  <lib-client-card [client]="client" [contact]="data.getContactById(client.contact)" />
+
+  <section class='client-details__care-moments'>
+    <h3 class='client-details__care-moments-title'>Zorgmomenten</h3>
+    <a class='client-details__add-care-moment' routerLink="/client/{{ client.id }}/add-care-moment">
+      Voeg zorgmoment toe
+    </a>
+
+  <lib-list-care-moments [careMoments]="(careMoments$ | async) ?? []" />
+  </section>
+} @else {
+  <p>Client not found.</p>
+}
+
+<router-outlet></router-outlet>
+

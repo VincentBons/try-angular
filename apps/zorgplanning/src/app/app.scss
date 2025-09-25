@@ -1,0 +1,28 @@
+.app-header {
+  background-color: var(--color-header);
+  padding: var(--spacing-s);
+  text-align: center;
+  height: 4rem;
+
+  &__title {
+    margin: 0;
+    font-size: var(--font-size-xxxl);
+    line-height: 3rem;
+    color: white;
+  }
+}
+
+.app-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-main-bg);
+  height: 100%;
+
+  &__container {
+    width: 1024px;
+    padding: 0 var(--spacing-m) var(--spacing-m);
+    background-color: white;
+    height: 100%;
+  }
+}

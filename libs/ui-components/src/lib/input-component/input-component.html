@@ -1,0 +1,24 @@
+
+<div class="input">
+  @if (this.error()) {
+    <div class="input__error">{{ this.error }}</div>
+  }
+  <label class="input__label" [for]="this._elementId">
+    {{ this.label() }}
+    @if (this.required()) {
+      <span class="input__required" aria-hidden="true">*</span>
+      <span class="input__required-text"> (verplicht)</span>
+    }
+  </label>
+  <input
+    class="input__field"
+    [ngClass]="[this.width() === 'wide' ? 'input__field--wide' : '',  this.showValidation() ? 'input__field--validate' : '']"
+    [id]="this._elementId"
+    [name]="this.name()"
+    [type]="this.type()"
+    [placeholder]="this.placeholder()"
+    [value]="this.value()"
+    [formControl]="this.control()"
+    [attr.data-test-input]="this.name()"
+  />
+</div>

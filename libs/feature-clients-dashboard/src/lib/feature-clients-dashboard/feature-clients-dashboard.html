@@ -1,0 +1,13 @@
+<lib-page-header [title]="'Cliënten'"></lib-page-header>
+<ul class='clients-dashboard__client-list'>
+  @for (client of clients; track client.id) {
+    <li class='clients-dashboard__client-item'>
+      <a class='clients-dashboard__client-link' routerLink="/client/{{ client.id }}">
+        <lib-client-card [client]="client" [contact]="data.getContactById(client.contact)" />
+      </a>
+    </li>
+  } @empty {
+    <li>Er zijn (nog geen) cliënten.</li>
+  }
+</ul>
+

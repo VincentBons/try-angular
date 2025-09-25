@@ -1,0 +1,34 @@
+.list-care-moments__table {
+  width: 100%;
+  border-collapse: collapse;
+  border: var(--spacing-xxs) solid var(--color-primary);
+}
+
+.list-care-moments__tr {
+  border-bottom: var(--spacing-xxs) solid var(--color-primary);
+}
+
+.list-care-moments__th,
+.list-care-moments__td {
+  text-align: left;
+  padding: var(--spacing-s);
+  border-right: var(--spacing-xxs) solid var(--color-primary);
+}
+
+.list-care-moments__th {
+  background-color: var(--color-th-bg);
+}
+
+.list-care-moments_order-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-m);
+  padding: 0 var(--spacing-xxs);
+
+  &--active {
+    color: white;
+    font-size: var(--font-size-xxl);
+    font-weight: bold;
+  }
+}

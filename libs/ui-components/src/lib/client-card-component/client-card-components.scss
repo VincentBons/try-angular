@@ -1,0 +1,47 @@
+.client-card {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+  padding: var(--spacing-s) var(--spacing-m);
+  gap: var(--spacing-s);
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 20rem;
+
+  &__avatar {
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+  }
+
+  &__name {
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    max-width: 14rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__info-title {
+    font-weight: bold;
+    flex: 1 2 30%;
+  }
+
+  &__info-content {
+    flex: 2 1 100%;
+  }
+}
